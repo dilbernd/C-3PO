@@ -1,4 +1,5 @@
 apply plugin: 'java'
+apply plugin: 'kotlin'
 apply plugin: 'groovy'
 apply plugin: 'application'
 
@@ -17,6 +18,7 @@ repositories {
     flatDir {
         dirs 'lib'
     }
+    mavenCentral()
 }
 
 dependencies {
@@ -39,7 +41,26 @@ dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12', transitive: false
     testCompile group: 'hamcrest', name: 'hamcrest-core', version: '1.3', transitive: false
     testCompile group: 'spock-core', name: 'spock-core', version: '1.0', transitive: false
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
 }
 
 installDist.dependsOn test
-
+buildscript {
+    ext.kotlin_version = '1.3.72'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
+compileTestKotlin {
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+}
