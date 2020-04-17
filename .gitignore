@@ -1,7 +1,7 @@
 .gradle/
 build/
-C-3PO.iml
-.idea
+*.iml
+/.idea/
 /gradle/wrapper/gradle-wrapper.jar
 out
 
