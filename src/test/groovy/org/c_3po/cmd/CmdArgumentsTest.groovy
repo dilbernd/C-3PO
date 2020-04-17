@@ -18,7 +18,7 @@ class CmdArgumentsTest extends Specification {
         src | dest | expectedResult
         "" | "" | false
         "." | "." | false
-        "./build" | "../development/build" | false
+        "./build" | "./samples/../build" | false
         "." | "../development/build" | true
         "." | "./a-not-existing-folder" | true
         "./a-not-existing-folder" | "." | true
