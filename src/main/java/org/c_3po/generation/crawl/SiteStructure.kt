@@ -1,5 +1,6 @@
 package org.c_3po.generation.crawl
 
+import org.c_3po.URL_PATH_DELIMITER
 import java.nio.file.Path
 import java.util.*
 
@@ -28,8 +29,6 @@ class SiteStructure private constructor(baseUrl: String) {
     private fun toUrlPart(pagePath: Path) = pagePath.map(Path::toString).joinToString(URL_PATH_DELIMITER)
 
     companion object {
-        const val URL_PATH_DELIMITER = "/"
-
         @JvmStatic
         fun getInstance(baseUrl: String) = SiteStructure(baseUrl)
     }
