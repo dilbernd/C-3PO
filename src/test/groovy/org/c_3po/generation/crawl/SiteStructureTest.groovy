@@ -14,10 +14,10 @@ class SiteStructureTest extends Specification {
         def siteStructure = SiteStructure.getInstance(baseUrl)
 
         when:
-        siteStructure.add(null);
+        siteStructure.add(null)
 
         then:
-        thrown(NullPointerException)
+        thrown(IllegalArgumentException)
     }
 
     def "test that .add throws IllegalArgumentException when path is absolute"() {
